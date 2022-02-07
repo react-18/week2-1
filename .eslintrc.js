@@ -29,5 +29,6 @@ module.exports = {
         "import/no-unresolved": 0,
         "comma-dangle": 0,
         "no-shadow": 0,
+        "import/prefer-default-export": 0,
     }
 }
