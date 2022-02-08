@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import Button from '../atoms/Button';
 import DetailText from '../atoms/DetailText';
+import { Request } from '../../store/request';
 
 // enum Method {
 //     milling= '밀링',
@@ -16,20 +17,8 @@ import DetailText from '../atoms/DetailText';
 //     steel= '강철',
 // }
 
-type RequestInfo = {
-  id: number;
-  title: string;
-  client: string;
-  due: string;
-  count: number;
-  amount: number;
-  method: string[];
-  material: string[];
-  status: string;
-};
-
 interface Props {
-  initialState: RequestInfo;
+  initialState: Request;
 }
 
 interface TextProps {
