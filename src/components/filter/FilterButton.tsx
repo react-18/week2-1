@@ -48,6 +48,23 @@ function FilterButton({ name, options }: Props) {
     }
   };
 
+  const handleClickOutside = (e: MouseEvent): void => {
+    const target = e.target as HTMLElement;
+    if (
+      !target.classList.contains('optionList') &&
+      target.tagName !== 'BUTTON' &&
+      target.tagName !== 'svg'
+    )
+      setIsClicked(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   /*   const dispatchMethod = (nextState: string[]) => {
     if (name === '가공방식') {
       dispatch(filterMethod(nextState));
@@ -188,12 +205,10 @@ const Button = styled.button<{ isSelected: boolean }>`
   position: relative;
   background-color: ${({ isSelected, theme }) =>
     isSelected ? theme.color.primaryBlue : theme.color.defaultWhite};
-
   &:hover {
     border-color: ${({ theme }) => theme.color.accentPrimaryBlue};
     cursor: pointer;
   }
-
   .icon {
     margin-left: 4px;
     background-color: ${({ isSelected, theme }) =>
@@ -218,7 +233,6 @@ const OptionItem = styled.li`
   display: flex;
   align-items: center;
   font-size: ${({ theme }) => theme.fontSize.middle};
-
   input[type='checkbox'] {
     width: 18px;
     height: 18px;
