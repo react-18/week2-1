@@ -18,17 +18,17 @@ function App() {
   );
   const [isSideBarOpened, setIsSideBarOpened] = useState(false);
   return (
-    <div>
-      {/* <div>
-        <MenuToggle
+    <Wrap>
+      <div>
+        {/* <MenuToggle
           isSideBarOpened={isSideBarOpened}
           setIsSideBarOpened={setIsSideBarOpened}
-        />
-        <Sidebar
+        /> */}
+        {/* <Sidebar
           isSideBarOpened={isSideBarOpened}
           setIsSideBarOpened={setIsSideBarOpened}
-        />
-      </div> */}
+        /> */}
+      </div>
       <HeaderNav />
 
       <Body>
@@ -58,15 +58,25 @@ function App() {
           ))}
         </ContentSection>
       </Body>
-    </div>
+    </Wrap>
   );
 }
 
 export default App;
 
+const Wrap = styled.div`
+  overflow-x: hidden;
+`;
+
 const Body = styled.div`
-  width: 1130px;
+  max-width: 1130px;
+  width: 100%;
   margin: 0 auto;
+
+  @media only screen and (max-width: 360px) {
+    width: 100%;
+    margin: 0 20px;
+  }
 `;
 
 const TitleSection = styled.div`
@@ -97,6 +107,16 @@ const ControllerSection = styled.div`
   .filterBtn {
     margin-right: 8px;
   }
+
+  @media only screen and (max-width: 360px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .controller:first-child {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const ContentSection = styled.div`
@@ -104,4 +124,9 @@ const ContentSection = styled.div`
   grid-template-columns: repeat(3, 1fr);
   row-gap: 16px;
   margin-bottom: 60px;
+
+  @media only screen and (max-width: 360px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+  }
 `;
