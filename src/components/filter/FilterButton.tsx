@@ -77,6 +77,7 @@ function FilterButton({ name, options }: Props) {
 export default FilterButton;
 
 const Button = styled.button<{ isSelected: boolean }>`
+  margin-right: 8px;
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.color.defaultWhite : theme.color.defaultGray};
   font-weight: 500;
