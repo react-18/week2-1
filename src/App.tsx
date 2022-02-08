@@ -13,7 +13,7 @@ import styled from 'styled-components';
 type RootState = ReturnType<typeof store.getState>;
 
 function App() {
-  const { filteredRequests } = useSelector(
+  const { filteredRequests, methods, materials } = useSelector(
     (state: RootState) => state.requests,
   );
   const [isSideBarOpened, setIsSideBarOpened] = useState(false);
@@ -43,7 +43,7 @@ function App() {
               name="재료"
               options={['알루미늄', '탄소강', '구리', '합금강', '강철']}
             />
-            <ResetButton />
+            {(methods.length > 0 || materials.length > 0) && <ResetButton />}
           </div>
           <div className="controller">
             <IsConsult />
