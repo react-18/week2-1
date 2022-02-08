@@ -50,7 +50,7 @@ const IsConsultMention = styled.div`
 
 const MentionText = styled.span`
   font-size: ${({ theme }) => theme.fontSize.middle};
-  font-weight: ${({ theme }) => theme.fontWeight.large};
+  font-weight: 500;
   color: ${({ theme }) => theme.color.defaultGray};
 `;
 
