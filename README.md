@@ -7,23 +7,34 @@ https://xenodochial-hopper-9ccbfd.netlify.app/
 
 <br />
 
-## 🎮&nbsp;&nbsp;구현 기능
-
-
-|  카드 불러오기  |  토글 필터링  |
-| :------------: | :----------: |
-| <img src="https://user-images.githubusercontent.com/63578094/153025747-4a2a523f-de54-4c52-8503-cf52bd2d07d0.gif"/>| <img src="https://user-images.githubusercontent.com/63578094/153010972-b989cc55-bd79-47df-84e3-9374d58ec627.gif"/>|
-|  체크박스 필터링  |  사이드바  |
-|<img src="https://user-images.githubusercontent.com/63578094/153010954-d4cf5900-14ec-4bc0-80a6-baf74b4790b9.gif"/>| <img src="https://user-images.githubusercontent.com/63578094/153015644-0d427da5-71c0-4f68-923e-2acc2cfb337d.gif"/>|
-
-<br />
-
 ## 👩&nbsp;&nbsp;팀원소개 및 담당업무
 |   이가윤     |      신혜리   |     한재성    |     이선재    |
 | :----------: | :----------: | :----------: | :----------: |
 |<img src="https://avatars.githubusercontent.com/u/67543454?v=4" width=100 alt="_"/>| <img src="https://avatars.githubusercontent.com/u/72786354?v=4" width=100 alt="_"/> |<img src="https://avatars.githubusercontent.com/u/57760806?v=4" width=100 alt="_"/> | <img src="https://avatars.githubusercontent.com/u/63578094?v=4" width=100 alt="_"/>|
 |  사이드바 구현 | 체크박스 구현 | 토글 구현 | 카드 구현|
 | [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Sunjae95) |[Github](https://github.com/Han-D-Peter)|
+
+
+<br />
+
+## 🎮&nbsp;&nbsp;구현 기능
+- 견적 요청 카드 필터링
+    - 선택한 가공방식, 재료 조건이 포함된 카드 노출
+    - 두 가지 조건이 모두 선택될 시 두 조건에 모두 속하는 카드 노출
+    - ‘상담중' 토글 클릭 시 해당 상태에 속하는 카드 노출
+- 리덕스를 이용한 상태관리
+    - 토글버튼 및 필터 드롭다운에 적용
+- 반응형 구현 : 모바일
+    - 모바일화면에서 사이드바 나타나도록 구현
+- mock rest-api server를 활용한 데이터 관리 (json-server)
+- 피그마를 바탕으로한 css 작업
+   
+
+|  카드 불러오기  |  토글 필터링  |
+| :------------: | :----------: |
+| <img src="https://user-images.githubusercontent.com/63578094/153025747-4a2a523f-de54-4c52-8503-cf52bd2d07d0.gif"/>| <img src="https://user-images.githubusercontent.com/63578094/153010972-b989cc55-bd79-47df-84e3-9374d58ec627.gif"/>|
+|  체크박스 필터링  |  사이드바  |
+|<img src="https://user-images.githubusercontent.com/63578094/153010954-d4cf5900-14ec-4bc0-80a6-baf74b4790b9.gif"/>| <img src="https://user-images.githubusercontent.com/63578094/153015644-0d427da5-71c0-4f68-923e-2acc2cfb337d.gif"/>|
 
 <br />
 
