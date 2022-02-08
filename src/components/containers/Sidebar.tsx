@@ -54,23 +54,27 @@ function Sidebar({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
 const Background = styled.div.attrs({
   className: 'background',
 })`
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: #000000;
   opacity: 50%;
   z-index: 2;
+  top: 0;
+  left: 0;
 `;
 
 const Wrapper = styled.aside`
-  position: absolute;
+  position: fixed;
   width: 280px;
-  height: 730px;
+  height: 100vh;
   background-color: ${({ theme }) => theme.color.defaultWhite};
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
   transform: translateX(-100%);
   transition: all 0.2s ease-in;
   z-index: 3;
+  top: 0;
+  left: 0;
 `;
 
 const Header = styled.header`

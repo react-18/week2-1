@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MenuToggle from 'components/atoms/MenuToggle';
 import logo from '../../../assets/img/logo.png';
 import building from '../../../assets/img/building.png';
+import Sidebar from '../Sidebar';
 
 function HeaderNav() {
   const [isSideBarOpened, setIsSideBarOpened] = useState(false);
@@ -11,6 +12,10 @@ function HeaderNav() {
   return (
     <HeaderContainer>
       <MenuToggle
+        isSideBarOpened={isSideBarOpened}
+        setIsSideBarOpened={setIsSideBarOpened}
+      />
+      <Sidebar
         isSideBarOpened={isSideBarOpened}
         setIsSideBarOpened={setIsSideBarOpened}
       />

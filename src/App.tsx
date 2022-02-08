@@ -16,21 +16,10 @@ function App() {
   const { filteredRequests, methods, materials } = useSelector(
     (state: RootState) => state.requests,
   );
-  const [isSideBarOpened, setIsSideBarOpened] = useState(false);
+
   return (
     <Wrap>
-      <div>
-        {/* <MenuToggle
-          isSideBarOpened={isSideBarOpened}
-          setIsSideBarOpened={setIsSideBarOpened}
-        /> */}
-        {/* <Sidebar
-          isSideBarOpened={isSideBarOpened}
-          setIsSideBarOpened={setIsSideBarOpened}
-        /> */}
-      </div>
       <HeaderNav />
-
       <Body>
         <TitleSection>
           <h1>들어온 요청</h1>
