@@ -28,7 +28,7 @@ const Icon = styled.img.attrs({
   cursor: pointer;
 `;
 const ToggleButton = styled.button`
-  background-color: blue;
+  background-color: ${({ theme }) => theme.color.primaryBlue};
 `;
 
 export default MenuToggle;
