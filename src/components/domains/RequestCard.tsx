@@ -106,6 +106,10 @@ const StyledRequestCard = styled.div`
       border: 1px solid ${theme.color.accentPrimaryBlue};
     }
   `}
+
+  @media only screen and (max-width: 360px) {
+    width: 320px;
+  }
 `;
 
 const StyledWrapper = styled.div<WrapperProps>`

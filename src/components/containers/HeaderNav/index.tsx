@@ -1,12 +1,19 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import MenuToggle from 'components/atoms/MenuToggle';
 import logo from '../../../assets/img/logo.png';
 import building from '../../../assets/img/building.png';
 
 function HeaderNav() {
+  const [isSideBarOpened, setIsSideBarOpened] = useState(false);
+
   return (
     <HeaderContainer>
+      <MenuToggle
+        isSideBarOpened={isSideBarOpened}
+        setIsSideBarOpened={setIsSideBarOpened}
+      />
       <div>
         <LogoImg src={logo} alt="logo" />
       </div>
@@ -33,6 +40,12 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 25px 40px 25px 40px;
+
+  @media only screen and (max-width: 360px) {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 23px;
+  }
 `;
 
 const LogoImg = styled.img`
@@ -43,6 +56,10 @@ const LogoImg = styled.img`
 
 const NavContainer = styled.div`
   display: flex;
+
+  @media only screen and (max-width: 360px) {
+    display: none;
+  }
 `;
 
 const NavBox = styled.div`
