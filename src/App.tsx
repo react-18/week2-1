@@ -1,14 +1,15 @@
-import MenuToggle from 'components/atoms/MenuToggle';
+import NoRequest from 'components/atoms/NoRequest';
 import HeaderNav from 'components/containers/HeaderNav';
 import IsConsult from 'components/containers/IsConsult';
-import Sidebar from 'components/containers/Sidebar';
 import RequestCard from 'components/domains/RequestCard';
 import FilterButton from 'components/filter/FilterButton';
 import ResetButton from 'components/filter/ResetButton';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData, Request } from 'store/request';
 import store from 'store/store';
 import styled from 'styled-components';
+import { API_URL } from '../src/constants/index';
 
 type RootState = ReturnType<typeof store.getState>;
 
@@ -16,6 +17,18 @@ function App() {
   const { filteredRequests, methods, materials } = useSelector(
     (state: RootState) => state.requests,
   );
+  const dispatch = useDispatch();
+
+  async function getData() {
+    const { requests: dataRequests } = await fetch(API_URL).then((res) =>
+      res.json(),
+    );
+    dispatch(fetchData(dataRequests as Request[]));
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Wrap>
@@ -38,14 +51,18 @@ function App() {
             <IsConsult />
           </div>
         </ControllerSection>
-        <ContentSection>
-          {filteredRequests.map((filteredRequest) => (
-            <RequestCard
-              key={filteredRequest.id}
-              initialState={filteredRequest}
-            />
-          ))}
-        </ContentSection>
+        {filteredRequests.length > 0 ? (
+          <ContentSection>
+            {filteredRequests.map((filteredRequest) => (
+              <RequestCard
+                key={filteredRequest.id}
+                initialState={filteredRequest}
+              />
+            ))}
+          </ContentSection>
+        ) : (
+          <NoRequest />
+        )}
       </Body>
     </Wrap>
   );
