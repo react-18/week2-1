@@ -73,7 +73,7 @@ function FilterButton({ name, options }: Props) {
 
   if (name === '가공방식') {
     return (
-      <div>
+      <Wrap>
         <Button
           value="method"
           type="button"
@@ -115,12 +115,12 @@ function FilterButton({ name, options }: Props) {
             })}
           </OptionList>
         )}
-      </div>
+      </Wrap>
     );
   }
   if (name === '재료') {
     return (
-      <div>
+      <Wrap>
         <Button
           value="materials"
           type="button"
@@ -162,13 +162,17 @@ function FilterButton({ name, options }: Props) {
             })}
           </OptionList>
         )}
-      </div>
+      </Wrap>
     );
   }
   return <h1>오류</h1>;
 }
 
 export default FilterButton;
+
+const Wrap = styled.div`
+  position: relative;
+`;
 
 const Button = styled.button<{ isSelected: boolean }>`
   margin-right: 8px;
@@ -204,8 +208,10 @@ const OptionList = styled.ul`
   border-radius: ${({ theme }) => theme.border.radius};
   padding: 16px 12px;
   width: 130px;
-  position: relative;
-  top: 4px;
+  position: absolute;
+  top: 37px;
+  z-index: 5;
+  background-color: ${({ theme }) => theme.color.defaultWhite};
 `;
 
 const OptionItem = styled.li`
