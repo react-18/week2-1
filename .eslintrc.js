@@ -27,5 +27,7 @@ module.exports = {
     'no-shadow': 0,
     'import/prefer-default-export': 0,
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'no-use-before-define': 0,
+    'react/require-default-props': 0,
   },
 };

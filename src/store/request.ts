@@ -3,7 +3,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // 상태 -> 액션 -> 리듀서
 
-interface Request {
+export interface Request {
   id: number;
   title: string;
   client: string;
