@@ -13,6 +13,7 @@ https://xenodochial-hopper-9ccbfd.netlify.app/
 ## 👩팀원소개 및 담당업무
 |   이가윤     |      신혜리   |     한재성    |     이선재    |
 | :----------: | :----------: | :----------: | :----------: |
+|<img src="https://avatars.githubusercontent.com/u/67543454?v=4" width=100 alt="_"/>| <img src="https://avatars.githubusercontent.com/u/72786354?v=4" width=100 alt="_"/> |<img src="https://avatars.githubusercontent.com/u/57760806?v=4" width=100 alt="_"/> | <img src="https://avatars.githubusercontent.com/u/63578094?v=4" width=100 alt="_"/>|
 |  사이드바 구현 | 체크박스 구현 | 토글 구현 | 카드 구현|
 | [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Sunjae95) |[Github](https://github.com/Han-D-Peter)|
 ## 🧗‍♂️프로젝트 과정 소개
