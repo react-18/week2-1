@@ -81,7 +81,7 @@ const NavBarBox = styled.div`
 `;
 
 const NavImgBox = styled.div`
-  margin-bottom: px;
+  margin-top: 2px;
 `;
 
 const NavCompanyBox = styled.div`
