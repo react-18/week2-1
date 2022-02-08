@@ -77,6 +77,7 @@ const Wrap = styled.div`
 const Body = styled.div`
   max-width: 1130px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
 
   @media only screen and (max-width: 360px) {
