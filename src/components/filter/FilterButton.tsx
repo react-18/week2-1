@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -20,7 +18,6 @@ function FilterButton({ name, options }: Props) {
   );
   const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<string[]>([]);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -64,29 +61,6 @@ function FilterButton({ name, options }: Props) {
       window.removeEventListener('click', handleClickOutside);
     };
   }, []);
-
-  /*   const dispatchMethod = (nextState: string[]) => {
-    if (name === '가공방식') {
-      dispatch(filterMethod(nextState));
-    } else if (name === '재료') {
-      dispatch(filterMaterial(nextState));
-    }
-  }; */
-
-  /*  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setSelectedOption([...selectedOption, e.target.value]);
-    } else {
-      const newOptionList = selectedOption.filter(
-        (option) => option !== e.target.value,
-      );
-      setSelectedOption(newOptionList);
-    }
-  }; */
-
-  /*   useEffect(() => {
-    dispatchMethod(selectedOption);
-  }, [selectedOption]); */
 
   if (name === '가공방식') {
     return (

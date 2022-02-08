@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-// 상태 -> 액션 -> 리듀서
 
 export interface Request {
   id: number;
@@ -134,8 +131,9 @@ export const RequestsSlice = createSlice({
   } as RequestsState,
   reducers: {
     //   state는 initialState객체와 동일
-    fetchData: (state: RequestsState, action: PayloadAction<RequestsState>) => {
-      state = action.payload;
+    fetchData: (state: RequestsState, action: PayloadAction<Request[]>) => {
+      state.requests = action.payload;
+      state.filteredRequests = action.payload;
     },
     filterStatus: (state: RequestsState) => {
       state.isConsulting = !state.isConsulting;

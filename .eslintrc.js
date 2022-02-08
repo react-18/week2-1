@@ -29,5 +29,6 @@ module.exports = {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'no-use-before-define': 0,
     'react/require-default-props': 0,
+    'no-param-reassign': 0,
   },
 };
