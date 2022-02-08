@@ -1,5 +1,3 @@
-/* eslint react/prop-types: 0 */
-/* eslint-disable no-use-before-define */
 import React, { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import hamburger from 'assets/img/hamburger.png';

@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { TSideBar } from 'components/atoms/MenuToggle';

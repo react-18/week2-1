@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuToggle from 'components/atoms/MenuToggle';
