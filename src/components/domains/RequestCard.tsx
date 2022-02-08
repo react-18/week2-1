@@ -4,19 +4,6 @@ import Button from '../atoms/Button';
 import DetailText from '../atoms/DetailText';
 import { Request } from '../../store/request';
 
-// enum Method {
-//     milling= '밀링',
-//     lathe= '선반'
-// }
-// enum Material {
-//     aluminum= '알루미늄',
-//     carbonSteel= '탄소강',
-//     carbonSteel= '탄소강',
-//     copper= '구리',
-//     alloySteel= '합금강',
-//     steel= '강철',
-// }
-
 interface Props {
   initialState: Request;
 }
