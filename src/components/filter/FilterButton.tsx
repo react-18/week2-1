@@ -1,17 +1,23 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { filterMethod, filterMaterial } from 'store/request';
+import store from 'store/store';
 
 type Props = {
   name: string;
   options: string[];
 };
 
+type RootState = ReturnType<typeof store.getState>;
+
 function FilterButton({ name, options }: Props) {
+  const { methods, materials } = useSelector(
+    (state: RootState) => state.requests,
+  );
   const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string[]>([]);
@@ -20,15 +26,37 @@ function FilterButton({ name, options }: Props) {
     setIsClicked(!isClicked);
   };
 
-  const dispatchMethod = (nextState: string[]) => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      if (name === '가공방식') {
+        dispatch(filterMethod([...methods, e.target.value]));
+      } else if (name === '재료') {
+        dispatch(filterMaterial([...materials, e.target.value]));
+      }
+    } else if (!e.target.checked) {
+      if (name === '가공방식') {
+        const newOptionList = methods.filter(
+          (option: string) => option !== e.target.value,
+        );
+        dispatch(filterMethod(newOptionList));
+      } else if (name === '재료') {
+        const newOptionList = materials.filter(
+          (option: string) => option !== e.target.value,
+        );
+        dispatch(filterMaterial(newOptionList));
+      }
+    }
+  };
+
+  /*   const dispatchMethod = (nextState: string[]) => {
     if (name === '가공방식') {
       dispatch(filterMethod(nextState));
     } else if (name === '재료') {
       dispatch(filterMaterial(nextState));
     }
-  };
+  }; */
 
-  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /*  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setSelectedOption([...selectedOption, e.target.value]);
     } else {
@@ -37,44 +65,114 @@ function FilterButton({ name, options }: Props) {
       );
       setSelectedOption(newOptionList);
     }
-  };
+  }; */
 
-  useEffect(() => {
+  /*   useEffect(() => {
     dispatchMethod(selectedOption);
-  }, [selectedOption]);
+  }, [selectedOption]); */
 
-  return (
-    <div>
-      <Button
-        value="method"
-        type="button"
-        onClick={handleClick}
-        isSelected={selectedOption.length > 0}
-      >
-        {name}
-        {selectedOption.length > 0 && <span>({selectedOption.length})</span>}
-        <IoMdArrowDropdown className="icon" size="20" />
-      </Button>
-      {isClicked && (
-        <OptionList>
-          {options.map((option) => (
-            <OptionItem key={option}>
-              <input
-                type="checkbox"
-                name={name}
-                value={option}
-                onChange={handleCheck}
-              />
-              <p>{option}</p>
-            </OptionItem>
-          ))}
-        </OptionList>
-      )}
-    </div>
-  );
+  if (name === '가공방식') {
+    return (
+      <Wrap>
+        <Button
+          value="method"
+          type="button"
+          onClick={handleClick}
+          isSelected={methods.length > 0}
+        >
+          {name}
+          {methods.length > 0 && <span>({methods.length})</span>}
+          <IoMdArrowDropdown className="icon" size="20" />
+        </Button>
+        {isClicked && (
+          <OptionList>
+            {options.map((option) => {
+              if (methods.includes(option)) {
+                return (
+                  <OptionItem key={option}>
+                    <input
+                      type="checkbox"
+                      name={name}
+                      value={option}
+                      onChange={handleCheck}
+                      checked
+                    />
+                    <p>{option}</p>
+                  </OptionItem>
+                );
+              }
+              return (
+                <OptionItem key={option}>
+                  <input
+                    type="checkbox"
+                    name={name}
+                    value={option}
+                    onChange={handleCheck}
+                  />
+                  <p>{option}</p>
+                </OptionItem>
+              );
+            })}
+          </OptionList>
+        )}
+      </Wrap>
+    );
+  }
+  if (name === '재료') {
+    return (
+      <Wrap>
+        <Button
+          value="materials"
+          type="button"
+          onClick={handleClick}
+          isSelected={materials.length > 0}
+        >
+          {name}
+          {materials.length > 0 && <span>({materials.length})</span>}
+          <IoMdArrowDropdown className="icon" size="20" />
+        </Button>
+        {isClicked && (
+          <OptionList>
+            {options.map((option) => {
+              if (materials.includes(option)) {
+                return (
+                  <OptionItem key={option}>
+                    <input
+                      type="checkbox"
+                      name={name}
+                      value={option}
+                      onChange={handleCheck}
+                      checked
+                    />
+                    <p>{option}</p>
+                  </OptionItem>
+                );
+              }
+              return (
+                <OptionItem key={option}>
+                  <input
+                    type="checkbox"
+                    name={name}
+                    value={option}
+                    onChange={handleCheck}
+                  />
+                  <p>{option}</p>
+                </OptionItem>
+              );
+            })}
+          </OptionList>
+        )}
+      </Wrap>
+    );
+  }
+  return <h1>오류</h1>;
 }
 
 export default FilterButton;
+
+const Wrap = styled.div`
+  position: relative;
+`;
 
 const Button = styled.button<{ isSelected: boolean }>`
   margin-right: 8px;
@@ -110,8 +208,10 @@ const OptionList = styled.ul`
   border-radius: ${({ theme }) => theme.border.radius};
   padding: 16px 12px;
   width: 130px;
-  position: relative;
-  top: 4px;
+  position: absolute;
+  top: 37px;
+  z-index: 5;
+  background-color: ${({ theme }) => theme.color.defaultWhite};
 `;
 
 const OptionItem = styled.li`
