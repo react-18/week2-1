@@ -131,10 +131,14 @@ const StyledText = styled.span<TextProps>`
 const CounselWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const CounselText = styled.div`
-  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  padding: 2px 8px 0 8px;
+  height: 25px;
   border-radius: 12px;
   text-align: center;
   color: ${({ theme }) => theme.color.warningYellow};
