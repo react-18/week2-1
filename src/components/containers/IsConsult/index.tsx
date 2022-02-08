@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ToggleBtn from 'components/atoms/ToggleBtn';
 import styled from 'styled-components';
 import store from '../../../store/store';
-import { fetchData, filterStatus } from '../../../store/request';
+import { filterStatus } from '../../../store/request';
 
 type RootState = ReturnType<typeof store.getState>;
 
@@ -49,7 +49,7 @@ const IsConsultMention = styled.div`
 `;
 
 const MentionText = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.middle};
+  font-size: ${({ theme }) => theme.fontSize.small};
   font-weight: 500;
   color: ${({ theme }) => theme.color.defaultGray};
 `;
