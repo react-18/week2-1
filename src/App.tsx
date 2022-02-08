@@ -72,6 +72,7 @@ export default App;
 
 const Wrap = styled.div`
   overflow-x: hidden;
+  margin-bottom: 60px;
 `;
 
 const Body = styled.div`
