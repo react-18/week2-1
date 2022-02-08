@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { filterMethod, filterMaterial } from 'store/request';
 
 type Props = {
   name: string;
@@ -10,11 +12,20 @@ type Props = {
 };
 
 function FilterButton({ name, options }: Props) {
+  const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string[]>([]);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
+  };
+
+  const dispatchMethod = (nextState: string[]) => {
+    if (name === '가공방식') {
+      dispatch(filterMethod(nextState));
+    } else if (name === '재료') {
+      dispatch(filterMaterial(nextState));
+    }
   };
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +39,9 @@ function FilterButton({ name, options }: Props) {
     }
   };
 
-  console.log(selectedOption);
+  useEffect(() => {
+    dispatchMethod(selectedOption);
+  }, [selectedOption]);
 
   return (
     <div>
@@ -39,6 +52,7 @@ function FilterButton({ name, options }: Props) {
         isSelected={selectedOption.length > 0}
       >
         {name}
+        {selectedOption.length > 0 && <span>({selectedOption.length})</span>}
         <IoMdArrowDropdown className="icon" size="20" />
       </Button>
       {isClicked && (
@@ -85,6 +99,8 @@ const Button = styled.button<{ isSelected: boolean }>`
     margin-left: 4px;
     background-color: ${({ isSelected, theme }) =>
       isSelected ? theme.color.primaryBlue : theme.color.defaultWhite};
+    color: ${({ isSelected, theme }) =>
+      isSelected ? theme.color.defaultWhite : theme.color.subGray};
   }
 `;
 
