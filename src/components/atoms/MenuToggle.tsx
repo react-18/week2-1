@@ -2,6 +2,7 @@
 /* eslint-disable no-use-before-define */
 import React, { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
+import hamburger from 'assets/img/hamburger.png';
 
 export type TSideBar = {
   isSideBarOpened: boolean;
@@ -15,7 +16,7 @@ function MenuToggle({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
 
   return (
     <ToggleButton>
-      <Icon src="/images/hamburger.png" onClick={onClickButton} />
+      <Icon src={hamburger} onClick={onClickButton} alt="hamburger" />
     </ToggleButton>
   );
 }

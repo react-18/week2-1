@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { TSideBar } from 'components/atoms/MenuToggle';
+import logoBlue from 'assets/img/logo-blue.png';
+import buildingGray from 'assets/img/building-gray.png';
 
 function Sidebar({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
   const sideBarRef = useRef<HTMLInputElement>(null);
@@ -34,12 +36,12 @@ function Sidebar({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
   return (
     <Wrapper ref={sideBarRef}>
       <Header>
-        <LogoImg src="assets/images/logo-blue.png" />
+        <LogoImg src={logoBlue} alt="블루로고" />
       </Header>
       <Container>
         <ul>
           <Menu>
-            <MenuImg src="assets/images/building-gray.png" />
+            <MenuImg src={buildingGray} alt="회색빌딩" />
             <Text>파트너정밀가공</Text>
           </Menu>
         </ul>
