@@ -11,13 +11,13 @@ function HeaderNav() {
         <LogoImg src={logo} alt="logo" />
       </div>
       <NavContainer>
-        <NavImg src={building} alt="buliding" />
-        <NavBox>
+        <NavImgBox>
+          <NavImg src={building} alt="buliding" />
+        </NavImgBox>
+        <NavCompanyBox>
           <NavText>A 가공업체</NavText>
-        </NavBox>
-        <NavBox>
-          <NavText>|</NavText>
-        </NavBox>
+        </NavCompanyBox>
+        <NavBarBox />
         <NavBox>
           <NavText>로그아웃</NavText>
         </NavBox>
@@ -42,11 +42,31 @@ const LogoImg = styled.img`
 `;
 
 const NavContainer = styled.div`
+  height: 50px;
   display: flex;
+  align-items: flex-start;
 `;
 
 const NavBox = styled.div`
   margin-left: 32px;
+  margin-top: 2px;
+`;
+
+const NavBarBox = styled.div`
+  width: 1px;
+  height: 16px;
+  background-color: ${({ theme }) => theme.color.defaultWhite};
+  margin-left: 32px;
+  margin-top: 2px;
+`;
+
+const NavImgBox = styled.div`
+  margin-bottom: px;
+`;
+
+const NavCompanyBox = styled.div`
+  margin-left: 8px;
+  margin-top: 2px;
 `;
 
 const NavImg = styled.img`
