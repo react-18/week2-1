@@ -1,9 +1,11 @@
+import MenuToggle from 'components/atoms/MenuToggle';
 import HeaderNav from 'components/containers/HeaderNav';
 import IsConsult from 'components/containers/IsConsult';
+import Sidebar from 'components/containers/Sidebar';
 import RequestCard from 'components/domains/RequestCard';
 import FilterButton from 'components/filter/FilterButton';
 import ResetButton from 'components/filter/ResetButton';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import store from 'store/store';
 
@@ -13,9 +15,21 @@ function App() {
   const { filteredRequests } = useSelector(
     (state: RootState) => state.requests,
   );
+  const [isSideBarOpened, setIsSideBarOpened] = useState(false);
   return (
     <div>
+      <div>
+        <MenuToggle
+          isSideBarOpened={isSideBarOpened}
+          setIsSideBarOpened={setIsSideBarOpened}
+        />
+        <Sidebar
+          isSideBarOpened={isSideBarOpened}
+          setIsSideBarOpened={setIsSideBarOpened}
+        />
+      </div>
       <HeaderNav />
+
       <div>
         <div>
           <FilterButton name="가공방식" options={['밀링', '선반']} />
