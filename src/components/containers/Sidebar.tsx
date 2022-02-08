@@ -7,14 +7,10 @@ import buildingGray from 'assets/img/building-gray.png';
 
 function Sidebar({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
   const sideBarRef = useRef<HTMLInputElement>(null);
+
   const handleClickOutside = (e: MouseEvent): void => {
     const target = e.target as HTMLElement;
-
-    if (
-      !target.classList.contains('toggleButton') &&
-      target.tagName !== 'ASIDE'
-    )
-      setIsSideBarOpened(false);
+    if (target.classList.contains('background')) setIsSideBarOpened(false);
   };
 
   useEffect(() => {
@@ -33,23 +29,38 @@ function Sidebar({ isSideBarOpened, setIsSideBarOpened }: TSideBar) {
       }
     }
   }, [isSideBarOpened]);
+
   return (
-    <Wrapper ref={sideBarRef}>
-      <Header>
-        <LogoImg src={logoBlue} alt="블루로고" />
-      </Header>
-      <Container>
-        <ul>
-          <Menu>
-            <MenuImg src={buildingGray} alt="회색빌딩" />
-            <Text>파트너정밀가공</Text>
-          </Menu>
-        </ul>
-        <Logout>로그아웃</Logout>
-      </Container>
-    </Wrapper>
+    <>
+      <Wrapper ref={sideBarRef}>
+        <Header>
+          <LogoImg src={logoBlue} alt="블루로고" />
+        </Header>
+        <Container>
+          <ul>
+            <Menu>
+              <MenuImg src={buildingGray} alt="회색빌딩" />
+              <Text>파트너정밀가공</Text>
+            </Menu>
+          </ul>
+          <Logout>로그아웃</Logout>
+        </Container>
+      </Wrapper>
+      {isSideBarOpened && <Background />}
+    </>
   );
 }
+
+const Background = styled.div.attrs({
+  className: 'background',
+})`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 50%;
+  z-index: 2;
+`;
 
 const Wrapper = styled.aside`
   position: absolute;
@@ -59,6 +70,7 @@ const Wrapper = styled.aside`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
   transform: translateX(-100%);
   transition: all 0.2s ease-in;
+  z-index: 3;
 `;
 
 const Header = styled.header`
