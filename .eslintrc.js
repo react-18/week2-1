@@ -26,6 +26,9 @@ module.exports = {
     'comma-dangle': 0,
     'no-shadow': 0,
     'import/prefer-default-export': 0,
+<<<<<<< HEAD
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+=======
+>>>>>>> 7fc48e8 (Feat: Sidebar 컴포넌트 추가)
   },
 };
