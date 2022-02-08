@@ -128,12 +128,13 @@ const CounselWrapper = styled.div`
 const CounselText = styled.div`
   display: flex;
   align-items: center;
-  padding: 2px 8px 0 8px;
+  padding: 2px 8px;
   height: 25px;
   border-radius: 12px;
   text-align: center;
   color: ${({ theme }) => theme.color.warningYellow};
   border: 1px solid;
+  font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
 const Horizon = styled.div`
