@@ -69,7 +69,7 @@ const NavContainer = styled.div`
 
 const NavBox = styled.div`
   margin-left: 32px;
-  margin-top: 2px;
+  margin-top: 3px;
 `;
 
 const NavBarBox = styled.div`
