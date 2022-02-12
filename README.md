@@ -12,7 +12,7 @@ https://xenodochial-hopper-9ccbfd.netlify.app/
 | :----------: | :----------: | :----------: | :----------: |
 |<img src="https://avatars.githubusercontent.com/u/67543454?v=4" width=100 alt="_"/>| <img src="https://avatars.githubusercontent.com/u/72786354?v=4" width=100 alt="_"/> |<img src="https://avatars.githubusercontent.com/u/57760806?v=4" width=100 alt="_"/> | <img src="https://avatars.githubusercontent.com/u/63578094?v=4" width=100 alt="_"/>|
 |  사이드바 구현 | 체크박스 구현 | 토글 구현 | 카드 구현|
-| [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) |[Github](https://github.com/Sunjae95) |[Github](https://github.com/Han-D-Peter)|
+| [Github](https://github.com/Gayun00) |[Github](https://github.com/rachel490) | [Github](https://github.com/Han-D-Peter) |[Github](https://github.com/Sunjae95)|
 
 
 <br />
